@@ -393,11 +393,21 @@
                 item.remove();
                 element.change();
                 deleting = 0;
+                // add input 
+                addInput(true); 
             }
         }
 
 
         function addInput (focusme) {
+            // do not add input if not neceseary
+            if (!maxItems()) {
+                return;  
+            }
+            // do not add input if it is exists
+            if (holder.children(".bit-input").size()>0) {
+                    return;
+            }
             if(li_annon && li_annon.remove){
                 li_annon.remove();
             }
