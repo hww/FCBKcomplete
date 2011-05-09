@@ -194,10 +194,10 @@
             element.hide();
             if (options.maxitems > 1) {
                 element.attr("multiple", "multiple");
-                // add [] only if not exists and for "multiple" elements.
-                if (options.php_mode && element.attr("name").indexOf("[]") == -1) {
-                   element.attr("name", element.attr("name") + "[]");
-                }
+            }
+
+            if (options.php_mode && element.attr("name").indexOf("[]") == -1) {
+                element.attr("name", element.attr("name") + "[]");
             }
 
             holder = $(document.createElement("ul"));
