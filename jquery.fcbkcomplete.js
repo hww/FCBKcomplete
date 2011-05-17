@@ -549,8 +549,14 @@
 
         function addMembers(etext, data) {
             feed.html('');
-            etext = etext == '' ? options.default_search : etext;
-
+            if (etext == '') {
+                etext = options.default_search;
+            } else {
+                // there should be replacement reserverd
+                // by regexp characters. 
+                // FIXME! I do replace only |, add more
+                etext = etext.replace(/[|]/g, "[|]");                
+            }
             if (!options.cache && data != null) {
                 cache = new Array();
                 search_string = "";
